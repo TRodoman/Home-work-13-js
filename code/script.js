@@ -32,22 +32,25 @@ document.getElementById("btnGet").onclick = function () {
     });
   }
 
+
+
   function showExchange(data = []) {
     console.log(data);
     let peoples = data.results;
-    peoples.forEach((el) => {
+    peoples.forEach(({name, gender, height, skin_color, birth_year, homeworld }, i) => {
     
       const peopleBox = `
       <li><span class="title">
-      <h2>${el.name}</h2></span>
-      <span>Стать:&nbsp; ${el.gender}</span>
-      <span>Зріст:&nbsp; ${el.height}</span>
-      <span>Колір шкіри: &nbsp; ${el.skin_color}</span>
-      <span>Рік народження:&nbsp; ${el.birth_year}</span>
-      <a href="${el.homeworld}" target="_blank">Народився на планеті</a>
+      <img class="photo"src="https://starwars-visualguide.com/assets/img/characters/${i+1}.jpg" alt="">
+      <h2>${name}</h2></span>
+      <span>Стать:&nbsp; ${gender}</span>
+      <span>Зріст:&nbsp; ${height}</span>
+      <span>Колір шкіри: &nbsp; ${skin_color}</span>
+      <span>Рік народження:&nbsp; ${birth_year}</span>
+      <a href="${homeworld}" target="_blank">Народився на планеті</a>
       <button class="btn" onclick="localStorageBox ()">Зберігти</button> </li>`
-
       
+
       document.querySelector("#peoples").insertAdjacentHTML("beforeend", peopleBox);
 
       loader.classList.remove("show");
