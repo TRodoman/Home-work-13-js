@@ -38,8 +38,16 @@ document.getElementById("btnGet").onclick = function () {
     peoples.forEach((el) => {
     
       const peopleBox = `
-      <li><span class="title"><h2>${el.name}</h2></span><span>Стать:&nbsp; ${el.gender}</span><span>Зріст:&nbsp; ${el.height}</span>
-      <span>Колір шкіри: &nbsp; ${el.skin_color}</span><span>Рік народження:&nbsp; ${el.birth_year}</span><a href="${el.homeworld}" target="_blank">Народився на планеті</a><button class="btn" onclick="localStorageBox ()">Зберігти</button> </li>`
+      <li><span class="title">
+      <h2>${el.name}</h2></span>
+      <span>Стать:&nbsp; ${el.gender}</span>
+      <span>Зріст:&nbsp; ${el.height}</span>
+      <span>Колір шкіри: &nbsp; ${el.skin_color}</span>
+      <span>Рік народження:&nbsp; ${el.birth_year}</span>
+      <a href="${el.homeworld}" target="_blank">Народився на планеті</a>
+      <button class="btn" onclick="localStorageBox ()">Зберігти</button> </li>`
+
+      
       document.querySelector("#peoples").insertAdjacentHTML("beforeend", peopleBox);
 
       loader.classList.remove("show");
