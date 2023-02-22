@@ -32,10 +32,9 @@ document.getElementById("btnGet").onclick = function () {
     });
   }
 
-
-
   function showExchange(data = []) {
     console.log(data);
+
     let peoples = data.results;
     peoples.forEach(({name, gender, height, skin_color, birth_year, homeworld }, i) => {
     
@@ -47,7 +46,7 @@ document.getElementById("btnGet").onclick = function () {
       <span>Зріст:&nbsp; ${height}</span>
       <span>Колір шкіри: &nbsp; ${skin_color}</span>
       <span>Рік народження:&nbsp; ${birth_year}</span>
-      <a href="${homeworld}" target="_blank">Народився на планеті</a>
+      <a id="planet" href="${(homeworld)}" target="_blank">Народився на планеті</a>
       <button class="btn" onclick="localStorageBox ()">Зберігти</button> </li>`
       
 
@@ -59,6 +58,8 @@ document.getElementById("btnGet").onclick = function () {
   }
   
   getServer("https://swapi.dev/api/people/?format=json", showExchange);
+
+
 };
 
 

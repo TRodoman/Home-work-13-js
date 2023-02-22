@@ -20,7 +20,7 @@ const dateText = `Comment Date: <br> ${new Date().getFullYear()}-${
 
 
 async function getData() {
-    const response = await fetch('https://swapi.dev/api/planets/');
+    const response = await fetch('https://jsonplaceholder.typicode.com/comments');
     const data = await response.json();
     return data;
   }
